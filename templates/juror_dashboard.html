@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord du Juré</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Tableau de Bord du Juré</h1>
+    <p>Bienvenue, {{ username }} !</p>
+    <nav>
+        <ul>
+            <li><a href="/choisir_selection">Choisir une Sélection</a></li>
+            <li><form action="/vote" method="POST">
+    <input type="hidden" name="book_id" value="{{ book_id }}">  <!-- ou une valeur appropriée -->
+    <input type="hidden" name="stage" value="{{ stage }}">      <!-- ou une valeur appropriée -->
+    <input type="submit" value="Voter">
+</form></li>
+            <li><a href="/logout">Se Déconnecter</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

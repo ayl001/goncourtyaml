@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Sélection</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Ajouter une Sélection</h1>
+    <form method="POST" action="/add_selection">
+        <label for="nom">Nom de la Sélection :</label>
+        <input type="text" id="nom" name="nom" required>
+        <button type="submit">Ajouter</button>
+    </form>
+    <a href="/dashboard">Retour au Tableau de Bord</a>
+</body>
+</html>

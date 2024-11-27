@@ -1,0 +1,22 @@
+@startuml
+:peone:-->(Consulte)
+:pj:-->(authentication)
+:pj: --> (lice)
+:pj: --> (scrutin)
+peone<|--juré
+juré<|--pj
+:juré:-->(authentication)
+:juré:-->(vote)
+"Consulte \nla liste des livres suivant \
+\nle tour de scrutin" as (Consulte)
+"Indiquer livres en lice \
+\npour la deuxième et la \
+\ntroisième sélection" as (lice)
+"indiquer le nombre de votes \
+\nobtenus par chaque livre \
+\nprésent au dernier tour de scrutin" as (scrutin)
+"Président" as pj
+authentication<|--(lice)
+authentication<|--vote
+authentication<|--scrutin
+@enduml

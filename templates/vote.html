@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Voter</h1>
+    <form method="POST" action="/vote">
+        <label for="vote">Vote :</label>
+        <input type="text" id="vote" name="vote" required>
+        <button type="submit">Soumettre le Vote</button>
+    </form>
+    <a href="/dashboard">Retour au Tableau de Bord</a>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palmarès</title>
+    <link rel="stylesheet" href="/static/style.css">  <!-- Link to the CSS file -->
+</head>
+<body>
+
+<h1>Palmarès</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>  <!-- Colonne pour l'ID -->
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for livre in resultat %}
+        <tr>
+            <td>{{ livre.id }}</td>  <!-- Affiche l'ID du livre -->
+            <td>{{ livre.titre }}</td>
+            <td>{{ livre.name }} {{ livre.surname }}</td>
+            <td>
+                <a href="{{ url_for('actions.get_bio', book_id=livre.id) }}">Afficher la biographie</a>
+                <a href="{{ url_for('actions.get_digest', book_id=livre.id) }}">Afficher le résumé</a>
+                {% if current_user.role == "juror" %}
+                    <form method="POST" action="{{ url_for('actions.juror_vote') }}">
+                        <input type="hidden" name="book_id" value="{{ livre.id }}">
+                        <input type="hidden" name="stage" value="{{ stage }}">
+                        <button type="submit">Voter</button>
+                    </form>
+                {% endif %}
+                {% if current_user.role == "president" %}
+                    <form method="POST" action="{{ url_for('actions.add_selection') }}">
+                        <input type="hidden" name="book_id" value="{{ livre.id }}">
+                        <input type="hidden" name="stage" value="{{ stage }}">
+                        <button type="submit">Ajouter une sélection</button>
+                    </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

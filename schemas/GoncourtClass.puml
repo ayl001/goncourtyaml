@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class livre{
+id: id
++titre: string
++id_auteur: id
++digest: long string
++editor_id: id
++main_characters_id: id
++parution: date
++nb_pages: int
++ISBN: int
++prix: float
+}
+
+class main_characters {
+	+id: id
+	+id_livre: id
+	+personnage: string
+}
+
+class editor {
+	+id: id
+	+nom: string
+	+livres: [livre]
+}
+class auteur{
+    +id: id
+    +nom: string
+    +prenom: string
+    +oeuvre:[livre]
+    +cv: long string
+}
+
+class selection{
+	+id: id
+    +etape: 1..4
+	+book_id: int
+	+vote: int
+}
+class peone{
+    +choisir_selection()
+    +afficher_selection()
+    +choisir_livre()
+    +afficher_digest()
+    +afficher_bio()
+ }
+ class juror{
+    +vote()
+ }
+ class president{
+    +faire_selection()
+    +proclamer_resultat()
+ }
+livre"1..n"--"1..1"editor
+livre"1..n"--"1..1"auteur
+selection"0..1"--"1..n"livre
+main_characters"0..n"--"1..1"livre
+president--|>"inherits"juror
+juror--|>"inherits"peone
+@enduml
+
+

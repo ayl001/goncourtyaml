@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résumé</title>
+	<link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+    <h1>Résumé du Livre</h1>
+    <p>{{ digest }}</p>  <!-- Affichage du résumé -->
+    <a href="{{ url_for('actions.choisir_selection') }}">Retour à la sélection</a>
+</body>
+</html>
