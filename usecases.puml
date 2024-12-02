@@ -1,12 +1,13 @@
 @startuml
-:peone:-->(Consulte)
-:pj:-->(authentication)
-:pj: --> (lice)
-:pj: --> (scrutin)
-peone<|--juré
+left to right direction
+:peone:--(Consulte)
+:pj:--(authentication)
+:pj: -- (lice)
+:pj: -- (scrutin)
+peone -- juré
 juré<|--pj
-:juré:-->(authentication)
-:juré:-->(vote)
+:juré: -- (authentication)
+:juré: -- (vote)
 "Consulte \nla liste des livres suivant \
 \nle tour de scrutin" as (Consulte)
 "Indiquer livres en lice \
