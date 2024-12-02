@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
-from .DAO.concours_dao import SelectionDao
-from .concours import selection
+from DAO.concours_dao import SelectionDao
+from concours import selection
 
 actions_bp = Blueprint('actions', __name__)
 
