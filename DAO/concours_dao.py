@@ -1,7 +1,7 @@
 from typing import Optional
 
-from .dao import Dao
-from ..concours import selection
+from DAO.dao import Dao
+from concours import selection
 
 
 class SelectionDao(Dao):
